@@ -1,2 +1,1 @@
-# simplehttpserver
-simple http server
+from: https://tproger.ru/translations/go-web-server/
