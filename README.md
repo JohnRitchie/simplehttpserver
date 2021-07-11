@@ -1,1 +1,1 @@
-from: https://tproger.ru/translations/go-web-server/
+from: https://zetcode.com/golang/http-server/
