@@ -8,11 +8,22 @@ import (
 
 func main() {
 
-	http.HandleFunc("/", HelloServer)
-	fmt.Println("Server started at port 8080")
+	http.HandleFunc("/", handler)
+
+	fmt.Printf("Starting server at port 8080\n")
 	log.Fatal(http.ListenAndServe(":8080", nil))
 }
 
-func HelloServer(w http.ResponseWriter, r *http.Request) {
-	fmt.Fprintf(w, "Hello, %s!\n", r.URL.Path[1:])
+func handler(w http.ResponseWriter, r *http.Request) {
+
+	keys, ok := r.URL.Query()["name"]
+
+	name := "guest"
+
+	if ok {
+
+		name = keys[0]
+	}
+
+	fmt.Fprintf(w, "Hello %s!\n", name)
 }
